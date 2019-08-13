@@ -169,7 +169,7 @@ c:\folder1\folder2\folder3";
 
             }
 
-            // Iteration Systems
+            // Iteration Systems- ------------------------------------------------------
             // For, Foeach, While and Do-while
             // Forloop, normal as we do
             for(var temp = 0; temp <= 10; temp++)
@@ -207,7 +207,7 @@ c:\folder1\folder2\folder3";
                     break;
             }
 
-            // Random Numbers
+            // Random Numbers ---------------------------------------
             var random = new Random();
             const int passwordLength = 10;
             var buffer = new char[passwordLength];
@@ -293,7 +293,48 @@ c:\folder1\folder2\folder3";
             numberList.Clear();
 
             Console.WriteLine("List count after clearing = " + numberList.Count);
-           
+
+            // Date  -------------------------------------------
+            var dateTime = new DateTime(2015, 1, 25);
+            var currentDateTime = DateTime.Now;
+            var todaysDate = DateTime.Today;
+            Console.WriteLine("Hour: " + currentDateTime.Hour);
+            Console.WriteLine("Minute: " + currentDateTime.Minute);
+
+            // to change the datetime object
+            var tomorrow = currentDateTime.AddDays(1);
+            var yesterday = currentDateTime.AddDays(-1);
+
+            Console.WriteLine("Long Date string = " + currentDateTime.ToLongDateString());
+            Console.WriteLine("Short Date string = " + currentDateTime.ToShortDateString());
+            Console.WriteLine("Long Time string = " + currentDateTime.ToLongTimeString());
+            Console.WriteLine("Short Time string = " + currentDateTime.ToShortTimeString());
+            Console.WriteLine("Date and Time = " + currentDateTime.ToString());
+            Console.WriteLine("Date and Time = " + currentDateTime.ToString("yyyy-MM-dd"));
+
+            // Time --------------------------------------------
+            // Creating timespans
+            var timeSpan = new TimeSpan(1, 2, 3); //(Hour, Minutes, Seconds)
+            var timeSpan1 = new TimeSpan(1, 0, 0);
+            var timeSpan2 = TimeSpan.FromHours(1);
+
+            var start = DateTime.Now;
+            var end = DateTime.Now.AddMinutes(2);
+            var duration = end - start;
+            Console.WriteLine("Duration : " + duration);
+
+            // Accessing properties
+            Console.WriteLine("Minutes = " + timeSpan.Minutes);
+            Console.WriteLine("total Minutes = " + timeSpan.TotalMinutes);
+
+            // Add
+            Console.WriteLine("Add time  = " + timeSpan.Add(TimeSpan.FromMinutes(8)));
+            Console.WriteLine("Subtract time  = " + timeSpan.Subtract(TimeSpan.FromMinutes(8)));
+
+            // ToString
+            Console.WriteLine("ToString = "+ timeSpan.ToString());
+            // Parse
+            Console.WriteLine("Parse = " + TimeSpan.Parse("01:02:03"));
         }
 
         public static void Increment(int number)
