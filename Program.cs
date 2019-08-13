@@ -1,5 +1,6 @@
 ﻿using System;
 using HelloWorld.Math;
+using System.Collections.Generic;
 
 namespace HelloWorld
 {
@@ -219,8 +220,16 @@ c:\folder1\folder2\folder3";
             Console.Write(password);
 
 
-            // Arrays and Lists
-            var numbersArray = new[] { 2, 5, 6, 4, 8 };
+            // Arrays have fixed size--------------------------------- 
+            // Jagged Array -> 
+            var jaggedArray = new int[3][];
+            jaggedArray[0] = new int[] {1,2,3,4};
+            jaggedArray[1] = new int[] { 1,2};
+            jaggedArray[2] = new int[] { 2,5,8};
+
+
+
+            var numbersArray = new[] { 2, 5, 6, 4, 8 }; //Initializing array with object initialization syntax;
 
             // Length - returns the length of the array
             Console.WriteLine("Length: " + numbersArray.Length);
@@ -255,6 +264,36 @@ c:\folder1\folder2\folder3";
             Console.WriteLine("Elements after Reverse");
             foreach (var revElement in numbersArray)
                 Console.WriteLine(revElement);
+
+            // Lists dynamic size -----------------------------------
+            
+            var numberList = new List<int>() {1,2,3,4,5,6,5}; // Initializing list with object initialization syntax
+            numberList.Add(7); // Add one element to the list just like push
+            numberList.AddRange(new int[3] { 8, 9, 10 }); // Add more than one element
+
+            foreach (var listItem in numberList)
+                Console.WriteLine(listItem);
+
+            Console.WriteLine("Index of 5 " + numberList.IndexOf(5));
+            Console.WriteLine("Last Index of 5 " + numberList.LastIndexOf(5));
+            Console.WriteLine("Count " + numberList.Count);
+
+            numberList.Remove(8);
+            Console.WriteLine("List after removing  8");
+
+            foreach (var listItem in numberList)
+                Console.WriteLine(listItem);
+
+            for(var adf = 0; adf < numberList.Count; adf++)
+            {
+                if (numberList[adf] == 1)
+                    numberList.Remove(numbers[adf]);
+            }
+
+            numberList.Clear();
+
+            Console.WriteLine("List count after clearing = " + numberList.Count);
+           
         }
 
         public static void Increment(int number)
